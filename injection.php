@@ -1,5 +1,5 @@
 <?php
-include '../functions.php';
+include './functions.php';
 
 //cancel button
 if(isset($_POST['cancel']) && $_POST['cancel'] == 'Cancel'){
