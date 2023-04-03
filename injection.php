@@ -280,11 +280,14 @@ if(isset($_POST['payload_submit'])){
                     <img src="<?php echo "User_SVG/".$_COOKIE['file'] ?>"><br>
                 </div>
                 
-                
+                <!--
                 <div class='col-sm-6'>
                     <h3>SVG Image rendered directly</h3>
-                    <?php echo "<iframe width='600' height='600' srcdoc='".file_get_contents("User_SVG/".$_COOKIE['file'])."'></iframe>";?>
+                    <?php 
+                        //echo "<iframe width='600' height='600' srcdoc='".file_get_contents("User_SVG/".$_COOKIE['file'])."'></iframe>";
+                    ?>
                 </div>
+                    -->
                 <!-- download svg -->
                 <a href="download.php"><button class="btn btn-primary">Download SVG</button></a>
         </div>
