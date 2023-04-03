@@ -41,9 +41,9 @@ function findallelements($svg){
     //loop through whole array
     for($buffer=0;$buffer<sizeof($svg);$buffer++){
         //check on open bracket
-        if($svg[$buffer]=='<' && (ctype_alpha($svg[$buffer+1]) || $svg[$buffer+1] == '/')){
+        if($svg[$buffer]=='<' && (ctype_alpha($svg[$buffer+1]) || $svg[$buffer+1] == '/' || $svg[$buffer+1] == '?' || $svg[$buffer+1] == '!')){
             //loop until next space
-            for ($i = $buffer + 1; ctype_alpha($svg[$i]) || is_numeric($svg[$i]) || $svg[$i] == '/'; $i++){
+            for ($i = $buffer + 1; ctype_alpha($svg[$i]) || is_numeric($svg[$i]) || $svg[$i] == '/' || $svg[$i] == '?' || $svg[$i] == '!'; $i++){
                 //get all character which form an element
                 $element.=$svg[$i];
             };
