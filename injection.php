@@ -279,6 +279,14 @@ if(isset($_POST['payload_submit'])){
                     <h3>SVG Image embed in IMG tag</h3>
                     <img src="<?php echo "User_SVG/".$_COOKIE['file'] ?>"><br>
                 </div>
+                <div class='col-sm-6'>
+                    <h3>SVG XML</h3>
+                    <?php 
+                        if(isset($svgContent)){
+                            echo htmlspecialchars($svgContent)."<br>";
+                        }
+                    ?>  
+                </div>
                 
                 <!--
                 <div class='col-sm-6'>
@@ -289,19 +297,9 @@ if(isset($_POST['payload_submit'])){
                 </div>
                     -->
                 <!-- download svg -->
-                <a href="download.php"><button class="btn btn-primary">Download SVG</button></a>
+                
         </div>
-
-        <div class="row my-5">
-            <div class='col-sm-12'>
-                <h3>SVG XML</h3>
-                <?php 
-                    if(isset($svgContent)){
-                        echo htmlspecialchars($svgContent)."<br>";
-                    }
-                ?>  
-            </div>
-        </div>
+        <a href="download.php"><button class="btn btn-primary">Download SVG</button></a>
 
     </div>
 </body>
