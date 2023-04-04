@@ -30,7 +30,9 @@ function inject_into_svg($svg, $payload, $tag) {
 function delete_img_cookie(){
     unlink("User_SVG/".$_COOKIE['file']);
     setcookie("file", "", time()-3600);
+    setcookie("xml", "", time()-3600);
     unset($_COOKIE['file']);
+    unset($_COOKIE['xml']);
 }
 
 //get all svg element in an svg
